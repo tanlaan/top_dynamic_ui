@@ -1,0 +1,34 @@
+*.*{
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  table {
+    width: 5em;
+    border: solid 1px black
+  }
+  
+  th {
+    text-align: left;
+    font-weight: normal;
+  }
+  
+  tbody {
+    visibility: collapse;
+    /*display: none;*/
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+  }
+  
+  td {
+    text-align: center;
+  }
+  
+  td:hover {
+    background-color: #eee
+  }
+  
+  td a{
+    text-decoration: none;
+    color: black;
+  }
