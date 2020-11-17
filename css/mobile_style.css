@@ -1,3 +1,11 @@
+.selected {
+    border: 3px solid blue;
+}
+
+.menu {
+    width: 6em;
+    transition: border 300ms;
+}
 .menu button {
     padding: 2px 4px;
     margin: 2px;
@@ -9,6 +17,15 @@
     padding: 0px;
     margin: 0px;
     transition: opacity 1s;
+}
+
+.menu ul a {
+    color: #333;
+    text-decoration: none;
+}
+
+.menu ul a:hover {
+    color: #f33;
 }
 
 .menu li{
