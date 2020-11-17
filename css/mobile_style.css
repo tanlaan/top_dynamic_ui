@@ -1,0 +1,21 @@
+.menu button {
+    padding: 2px 4px;
+    margin: 2px;
+    border: 2px solid #333;
+    width: auto;
+    height: auto;
+}
+.menu ul {
+    padding: 0px;
+    margin: 0px;
+    transition: opacity 1s;
+}
+
+.menu li{
+    list-style: none;
+}
+
+.hidden {
+    visibility: hidden;
+    position: absolute;
+}

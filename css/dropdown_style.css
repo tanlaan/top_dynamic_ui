@@ -1,34 +1,37 @@
-*.*{
-    padding: 0px;
-    margin: 0px;
-  }
-  
-  table {
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+table {
     width: 5em;
     border: solid 1px black
-  }
-  
-  th {
+}
+
+th {
     text-align: left;
     font-weight: normal;
-  }
-  
-  tbody {
+}
+
+tbody {
     visibility: collapse;
     /*display: none;*/
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
-  }
-  
-  td {
-    text-align: center;
-  }
-  
-  td:hover {
-    background-color: #eee
-  }
-  
-  td a{
-    text-decoration: none;
-    color: black;
-  }
+}
+
+td {
+text-align: center;
+}
+
+td:hover {
+background-color: #eee
+}
+
+td a{
+text-decoration: none;
+color: black;
+}
