@@ -14,6 +14,24 @@ html {
     border: 1px solid blue;
 }
 
+#carousel:hover {
+    background-color: rgba(200, 200, 200, 0.25);
+}
+
+#carousel:hover::before {
+    left: 10px;
+    top: 150px;
+    position: absolute;
+    content: "<";
+}
+
+#carousel:hover::after {
+    left: 275px;
+    top: 150px;
+    position: absolute;
+    content: ">";
+}
+
 #image-slider {
     position: absolute;
     width: 1200px;

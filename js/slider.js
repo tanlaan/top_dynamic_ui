@@ -1,10 +1,9 @@
+let currentImage = 0
+
 let getImageWidths = ()=> {
     let images = document.getElementsByClassName('image-frame')
-    console.log(images.length)
     let widths = []
     for (let i = 0; i < images.length; i += 1) {
-        console.log(i)
-        console.log(images[i].offsetWidth)
         widths[i] = images[i].offsetWidth
     }
     return widths
@@ -22,23 +21,57 @@ let getImageOffsets = (widths)=> {
     return offsets
 }
 
+let nextImage = () => {
+    currentImage = (currentImage + 1) % imageWidths.length
+    carouselSwitchImage(currentImage)
+}
+
+let previousImage = () => {
+    if (currentImage === 0) {
+        currentImage = imageWidths.length - 1
+    } else {
+        currentImage -= 1
+    }
+    carouselSwitchImage(currentImage)
+}
+
+let setSelectedDot = (i) => {
+    let dotsContainer = document.getElementById('dots')
+    let dots = dotsContainer.getElementsByTagName('button')
+    for (let button of dots) {
+        button.innerHTML = "&#9675;"
+    }
+    dots[i].innerHTML = "&#9679;"
+}
+
 let imageWidths = getImageWidths()
 let imageOffsets = getImageOffsets(imageWidths)
 
 let carousel = document.getElementById('carousel')
-let dots = document.getElementById('dots')
+carousel.addEventListener('click', (e) => {
+    let width = e.currentTarget.clientWidth
+    let x = e.pageX - e.currentTarget.offsetLeft
+    if (width/2 > x) {
+        previousImage()
+    } else {
+        nextImage()
+    }
+})
 
-
-function carouselButtonClick (i) {
+function carouselSwitchImage (i) {
     let slider = document.getElementById('image-slider')
-    console.log(imageOffsets[i])
+    currentImage = i
+    setSelectedDot(i)
     slider.style.left = imageOffsets[i] + 'px'
 }
 
 for (let i = 0; i < imageOffsets.length; i += 1) {
+    let dots = document.getElementById('dots')
     let button = document.createElement('button')
-    button.textContent = `${i + 1}`
+    button.innerHTML = 	"&#9675;"
     let offset = imageOffsets[i]
-    button.addEventListener('click', () => {carouselButtonClick(i)})
+    button.addEventListener('click', () => {carouselSwitchImage(i)})
     dots.appendChild(button)
 }
+carouselSwitchImage(0)
+window.setInterval(nextImage, 5000)
